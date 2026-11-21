@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ClearSide: pick a 15 minute time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://app.cal.com">
+<link rel="preconnect" href="https://cal.com">
+<link rel="preload" as="image" href="../f/hero.webp" media="(min-width:701px)">
+<link rel="preload" as="image" href="../f/hero_tall.webp" media="(max-width:700px)">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../f/f.css">
+<link rel="stylesheet" href="../f/book.css">
+</head>
+<body class="book">
+
+<div class="world" aria-hidden="true"><div class="night"></div></div>
+
+<nav class="nav">
+  <a class="wm" href="../" aria-label="ClearSide">ClearSide<i></i></a>
+  <a class="navlink" href="../">See the claim check</a>
+</nav>
+
+<main class="bk">
+  <div class="bk-pair">
+
+    <section class="gcard bk-say">
+      <div class="bk-top up" style="--d:0"><span class="wm">ClearSide<i></i></span><span>Free claim check</span></div>
+      <h1 class="up" style="--d:1">Find where your business leaks money.</h1>
+      <p class="sub up" style="--d:2">A 15 minute phone call. Pick a time on the calendar.</p>
+      <ol class="bk-rows">
+        <li class="up" style="--d:3"><i>01</i>Bring one month of supplier claims</li>
+        <li class="up" style="--d:4"><i>02</i>We look for double charges and wrong rates</li>
+        <li class="up" style="--d:5"><i>03</i>You hear what we found, in plain words</li>
+      </ol>
+      <div class="bk-time up" style="--d:6">
+        <p>In this time, your claim would have been checked and money put back into your business.</p>
+        <div class="bk-bar" aria-hidden="true"><i></i></div>
+      </div>
+      <a class="btn bk-go up" style="--d:6" href="#pick">Pick a time <span class="chip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3.5 8.5 8 13l4.5-4.5"/></svg></span></a>
+      <a class="btn2 up" style="--d:6" href="../quote/">Enquire instead</a>
+      <div class="bk-me up" style="--d:6">
+        <!-- Real photo only. Never a made-up face. -->
+        <span class="phw"><img class="ph" src="../f/michael.jpg" alt="Michael Pedrick" width="64" height="64" decoding="async"></span>
+        <div><b>Michael at ClearSide</b><span>You talk to me. No slides, no sales team.</span></div>
+      </div>
+      <p class="bk-fine up" style="--d:7"><span>Free</span><span>15 minutes</span><span>By phone</span></p>
+    </section>
+
+    <section class="gcard bk-cal" id="pick" aria-label="Pick a time">
+      <div class="bk-calhead up" style="--d:2"><h2>Pick a time</h2><span>15 min, by phone</span></div>
+      <div id="cal" class="up" style="--d:3"></div>
+      <p class="bk-calfoot"><span>Times show in your own time zone.</span><span>Calendar not loading? <a href="https://cal.com/clearside/15min">Open it here.</a></span><span>Rather not call? <a href="../quote/">Enquire in writing.</a></span></p>
+    </section>
+
+  </div>
+
+
+  <p class="bk-corner l" aria-hidden="true">Every order<br>accounted<br>for</p>
+  <p class="bk-corner r" aria-hidden="true">Free<br>claim<br>check</p>
+</main>
+
+<footer>
+  <b>Every order accounted for.</b>
+  <span>Michael Pedrick, ClearSide. Questions first? Reply to my email and it comes straight to me.</span>
+</footer>
+
+<script src="../f/f.js"></script>
+<script>
+/* Cal.com inline calendar (same booking link as BOOKING_LINK.txt). If the script is blocked, a plain iframe is used instead. */
+(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; let s = d.createElement("script"); s.src = A; s.onerror = C.calFallback; d.head.appendChild(s); cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+window.calFallback = function () {
+  var el = document.getElementById("cal"); if (!el || el.querySelector("iframe")) return;
+  el.innerHTML = '<iframe src="https://cal.com/clearside/15min?embed=true&layout=month_view&theme=dark" title="Pick a 15 minute time with ClearSide" style="height:640px"></iframe>';
+};
+Cal("init", "book", { origin: "https://app.cal.com" });
+Cal.ns.book("inline", { elementOrSelector: "#cal", calLink: "clearside/15min", config: { layout: "month_view", theme: "dark" } });
+Cal.ns.book("ui", { theme: "dark", layout: "month_view", hideEventTypeDetails: true,
+  cssVarsPerTheme: { dark: { "cal-brand": "#f39447", "cal-brand-text": "#1a0d05", "cal-bg": "transparent", "cal-bg-muted": "transparent", "cal-border-booker": "transparent", "cal-border-booker-width": "0px" },
+                     light: { "cal-brand": "#e8792c" } } });
+function calReady() { var el = document.getElementById("cal"); if (el) el.classList.add("ready"); }
+Cal.ns.book("on", { action: "linkReady", callback: function () { calReady(); } });
+setTimeout(calReady, 6500);
+setTimeout(function () { if (!document.querySelector("#cal iframe")) window.calFallback(); }, 6000);
+/* 21 Nov v9: phone buttons land here with #pick; re-jump once the page has settled so the calendar is first on screen. */
+addEventListener("load", function () { if (location.hash === "#pick") setTimeout(function () { var p = document.getElementById("pick"); if (p) p.scrollIntoView({ block: "start" }); }, 300); });
+</script>
+</body>
+</html>
