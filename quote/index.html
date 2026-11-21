@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ClearSide: enquire, no call needed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../f/f.css">
+<link rel="stylesheet" href="../f/book.css">
+<style>
+.qf{padding:6px 28px 24px;display:flex;flex-direction:column;gap:18px}
+.qf fieldset{border:0;margin:0;padding:0}
+.qf legend,.qf-field>span{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-bottom:9px}
+.qf i{font-style:normal;color:var(--or-hi,#f39447);margin-right:8px;font-size:12px}
+.qf em{font-style:normal;color:var(--faint)}
+.qf-pills{display:flex;flex-wrap:wrap;gap:8px}
+.qf-pills label{position:relative;cursor:pointer}
+.qf-pills input{position:absolute;opacity:0;inset:0;margin:0}
+.qf-pills span{display:inline-block;padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.28);font-size:14px;color:var(--dim);background:rgba(0,0,0,.18);min-height:20px}
+.qf-pills input:checked+span{background:var(--or,#f39447);border-color:var(--or,#f39447);color:var(--or-ink,#1a1310);font-weight:500}
+.qf-pills input:focus-visible+span{outline:2px solid #fff;outline-offset:2px}
+.qf-field{display:block}
+.qf input:not([type=radio]):not([type=checkbox]),.qf textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:#fff;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.26);border-radius:10px;padding:11px 13px}
+.qf textarea{resize:vertical}
+.qf input:focus,.qf textarea:focus{outline:none;border-color:var(--or,#f39447)}
+.qf ::placeholder{color:var(--faint)}
+.qf-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.qf-hp{position:absolute!important;left:-9999px;width:1px;height:1px}
+.qf-err{margin:0;color:#ffb38a;font-size:14px}
+.qf-go{align-self:flex-start}
+.req{color:var(--or-hi,#f39447);font-weight:600}.qf-other{margin-top:10px;padding:12px;border-radius:12px;background:rgba(0,0,0,.25);border:1px solid rgba(243,148,71,.45);animation:qpop .2s ease-out}@keyframes qpop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}.qf-note{margin:0;font-size:13px;color:var(--faint)}
+.qf-done{padding:10px 28px 28px}
+.qf-done h3{font-size:22px;font-weight:500;margin:6px 0 12px}
+.qf-done p{color:var(--dim);margin:0 0 12px}
+@media (max-width:640px){.qf,.qf-done{padding-left:20px;padding-right:20px}.qf-two{grid-template-columns:1fr}.qf-go{align-self:stretch;justify-content:center}.qf{gap:16px}.bk-rows,.bk-fine,.bk-corner{display:none}.bk-say h1{font-size:28px;line-height:1.15}.bk-say .sub{margin-bottom:14px}.bk-me{margin-top:0;padding-top:0;border:0}.bk-me .phw,.bk-me .ph{width:44px;height:44px}.bk-pair{gap:12px}.bk-calhead h2{font-size:20px}.qf-pills{display:grid;grid-template-columns:1fr 1fr;gap:8px}.qf-pills label,.qf-pills span{display:block}.qf-pills span{text-align:center;padding:10px 8px;font-size:13.5px;line-height:1.25}}
+</style>
+</head>
+<body class="book">
+
+<div class="world" aria-hidden="true"><div class="night"></div></div>
+
+<nav class="nav">
+  <a class="wm" href="../" aria-label="ClearSide">ClearSide<i></i></a>
+  <a class="navlink" href="../book/">Rather talk? 15 minute chat</a>
+</nav>
+
+<main class="bk">
+  <div class="bk-pair">
+
+    <section class="gcard bk-say">
+      <div class="bk-top up" style="--d:0"><span class="wm">ClearSide<i></i></span><span>No call needed</span></div>
+      <h1 class="up" style="--d:1">Rather not call? Enquire here.</h1>
+      <p class="sub up" style="--d:2">Answer 4 short questions. I reply in writing by the next business day.</p>
+      <ol class="bk-rows">
+        <li class="up" style="--d:3"><i>01</i>Tell us how orders and dockets run today</li>
+        <li class="up" style="--d:4"><i>02</i>We write back what we would fix, the fixed price and the start date</li>
+        <li class="up" style="--d:5"><i>03</i>Happy with it? Sign it and we start. No call, no pressure</li>
+      </ol>
+      <div class="bk-me up" style="--d:6">
+        <!-- Real photo only. Never a made-up face. -->
+        <span class="phw"><img class="ph" src="../f/michael.jpg" alt="Michael Pedrick" width="64" height="64" decoding="async"></span>
+        <div><b>Michael at ClearSide</b><span>I read every enquiry and reply myself.</span></div>
+      </div>
+      <p class="bk-fine up" style="--d:7"><span>Free</span><span>2 minutes</span><span>Quote by next business day</span></p>
+    </section>
+
+    <section class="gcard bk-cal" id="form" aria-label="Enquire">
+      <div class="bk-calhead up" style="--d:2"><h2>Your enquiry</h2><span>4 questions</span></div>
+
+      <form id="qf" class="qf up" style="--d:3" novalidate>
+        <fieldset>
+          <legend><i>1</i>What kind of business are you? <b class="req">*</b></legend>
+          <div class="qf-pills">
+            <label><input type="radio" name="business" value="Project contractor (construction / mining services)" required><span>Project contractor</span></label>
+            <label><input type="radio" name="business" value="Transport, freight or fuel"><span>Transport or fuel</span></label>
+            <label><input type="radio" name="business" value="Supplier, wholesaler or hire"><span>Supplier or hire</span></label>
+            <label><input type="radio" name="business" value="Other"><span>Other</span></label>
+          </div>
+          <div class="qf-other" id="qother" hidden><label class="qf-field"><span>What kind of business? <b class="req">*</b></span><input name="business_other" maxlength="120" placeholder="E.g. civil earthworks, waste haulage" enterkeyhint="done"></label></div>
+        </fieldset>
+
+        <fieldset>
+          <legend><i>2</i>Where does money leak most? <b class="req">*</b></legend>
+          <div class="qf-pills">
+            <label><input type="checkbox" name="leak" value="Lost or late dockets"><span>Lost dockets</span></label>
+            <label><input type="checkbox" name="leak" value="Supplier claims not checked"><span>Claims not checked</span></label>
+            <label><input type="checkbox" name="leak" value="Chasing unpaid invoices"><span>Chasing invoices</span></label>
+            <label><input type="checkbox" name="leak" value="Stock or orders not matching"><span>Orders not matching</span></label>
+            <label><input type="checkbox" name="leak" value="Not sure"><span>Not sure</span></label>
+          </div>
+        </fieldset>
+
+        <label class="qf-field"><span><i>3</i>How do you track orders and dockets today?</span>
+          <textarea name="today" rows="3" maxlength="1200" placeholder="E.g. paper dockets in the ute, then typed into Xero on Fridays"></textarea>
+        </label>
+
+        <div class="qf-two">
+          <label class="qf-field"><span><i>4</i>Your name <b class="req">*</b></span><input name="name" autocomplete="name" required maxlength="80"></label>
+          <label class="qf-field"><span>Work email <b class="req">*</b></span><input name="email" type="email" autocomplete="email" required maxlength="120"></label>
+        </div>
+        <label class="qf-field"><span>Phone <em>(optional)</em></span><input name="phone" type="tel" autocomplete="tel" maxlength="30"></label>
+        <input type="text" name="_honey" class="qf-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <p class="qf-err" id="qerr" role="alert" hidden></p>
+        <button class="btn qf-go" type="submit">Send my enquiry <span class="chip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button>
+        <p class="qf-note"><b class="req">*</b> needed. We only use your answers to reply to you. No mailing list.</p>
+      </form>
+
+      <div class="qf-done" id="qdone" hidden>
+        <h3>Got it. Your enquiry is in.</h3>
+        <p>You will hear back by <b id="qday">the next business day</b>, from Michael at ClearSide.</p>
+        <p>Want it faster? A 15 minute call gets you answers today.</p>
+        <a class="btn" href="../book/">Pick a 15 minute time <span class="chip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+      </div>
+    </section>
+
+  </div>
+  <p class="bk-corner l" aria-hidden="true">Every order<br>accounted<br>for</p>
+  <p class="bk-corner r" aria-hidden="true">No call<br>needed</p>
+</main>
+
+<footer>
+  <b>Every order accounted for.</b>
+  <span>Michael Pedrick, ClearSide. Questions first? Reply to my email and it comes straight to me.</span>
+</footer>
+
+<script src="../f/f.js"></script>
+<script>
+/* No-call path (21 Nov 2026). Answers go to FORM_TO via formsubmit.co (no account; first submit sends a one-time activation email).
+   After activation, swap the address for the random alias formsubmit gives, so no email address sits in the page. */
+var FORM_TO = "michael@getclearside.com";
+(function () {
+  var f = document.getElementById("qf"), err = document.getElementById("qerr"), oth = document.getElementById("qother");
+  /* Show the type-your-own box when Other is picked */
+  [].forEach.call(f.querySelectorAll('input[name="business"]'), function (r) {
+    r.addEventListener("change", function () {
+      var on = r.value === "Other" && r.checked; oth.hidden = !on;
+      if (on) setTimeout(function () { oth.querySelector("input").focus(); }, 50);
+    });
+  });
+  /* Tap anywhere outside a text box to close the phone keyboard */
+  document.addEventListener("touchstart", function (e) {
+    var a = document.activeElement;
+    if (a && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a !== e.target && !e.target.closest("input,textarea,label")) a.blur();
+  }, { passive: true });
+  /* Done / Enter on a one-line box closes the keyboard instead of sending */
+  f.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && e.target.tagName === "INPUT") { e.preventDefault(); e.target.blur(); }
+  });
+  function nextBizDay() {
+    var d = new Date(); d.setDate(d.getDate() + 1);
+    while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
+    return d.toLocaleDateString("en-AU", { weekday: "long", day: "numeric", month: "long" });
+  }
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var fd = new FormData(f), miss = [];
+    if (!fd.get("business")) miss.push("your kind of business");
+    else if (fd.get("business") === "Other" && !(fd.get("business_other") || "").trim()) miss.push("what kind of business you are");
+    if (!fd.getAll("leak").length) miss.push("where money leaks (pick at least one)");
+    if (!(fd.get("name") || "").trim()) miss.push("your name");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fd.get("email") || "")) miss.push("a work email");
+    if (miss.length) { err.textContent = "Please add " + miss.join(", ") + "."; err.hidden = false; return; }
+    if (fd.get("_honey")) return;
+    err.hidden = true;
+    var btn = f.querySelector("button"); btn.disabled = true; btn.firstChild.nodeValue = "Sending... ";
+    var body = {
+      _subject: "ClearSide enquiry: " + fd.get("name"),
+      _template: "table", _captcha: "false",
+      business: fd.get("business") === "Other" ? "Other: " + fd.get("business_other") : fd.get("business"), leaks: fd.getAll("leak").join(", ") || "-",
+      today: fd.get("today") || "-", name: fd.get("name"), email: fd.get("email"), phone: fd.get("phone") || "-",
+      _replyto: fd.get("email"), page: location.href
+    };
+    fetch("https://formsubmit.co/ajax/" + FORM_TO, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (String(j.success) !== "true" && !/activat/i.test(j.message || "")) throw new Error(j.message || "send failed");
+        document.getElementById("qday").textContent = nextBizDay();
+        f.hidden = true; document.getElementById("qdone").hidden = false;
+        document.getElementById("form").scrollIntoView({ block: "start" });
+      })
+      .catch(function () {
+        btn.disabled = false; btn.firstChild.nodeValue = "Send my enquiry ";
+        err.textContent = "That did not send. Please reply to my email with your answers and I will reply from there."; err.hidden = false;
+      });
+  });
+})();
+</script>
+</body>
+</html>
