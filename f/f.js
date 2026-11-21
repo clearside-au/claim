@@ -4,8 +4,9 @@
    scroll numbers are set on .world / .scene / .tl only (never on <html>), nothing is written when the value did not change. */
 (function(){
   var d=document.documentElement,body=document.body,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var book=body.classList.contains('book'),wide=matchMedia('(min-width:861px)');
+  var book=body.classList.contains('book'),wide=matchMedia('(min-width:861px)'),phone=matchMedia('(pointer:coarse)').matches; /* 21 Nov jank fix: phones get a still landscape */
   var scene=document.querySelector('.scene'),world=document.querySelector('.world'),tl=document.querySelector('.tl');
+  if(phone&&world){world.style.setProperty('--P','.35');world.style.setProperty('--p','1')}
   var big=tl?tl.querySelector('.big'):null;var links=tl?[].slice.call(tl.querySelectorAll('a')):[],marks=[];
   var vh=0,max=0,sTop=0,sRange=1,ticking=false,lastS=-1,lastL=-1,lastP=-1,lastPP=-1,lastK=-1,lastX=-1,cur=-1,pulled=null;
   /* 20 Nov phone fix: scroll-linked motion is desktop only. Phones get the still layout + a soft fade (html.lite). */
@@ -70,7 +71,7 @@
   function frame(){
     ticking=false;
     var y=window.scrollY,i;
-    if(!book&&world){
+    if(!book&&world&&!phone){
       var PP=max>0?clamp(y/max):0;
       if(PP!==lastPP){lastPP=PP;var sp=PP.toFixed(4);world.style.setProperty('--P',sp);if(tl)tl.style.setProperty('--P',sp)}
     }
@@ -83,7 +84,7 @@
     p=p*p; /* ease-in, like the tunnel in pin 23 */
     /* k = how far the layer stack is open: opens after the pull back, closes into the flat report at step 3 */
     var k=smooth((t-.2)/.1)*(1-smooth((t-.74)/.1)); /* 21 Nov: phone gets the layer stack too */
-    if(p!==lastP){lastP=p;var s1=p.toFixed(4);scene.style.setProperty('--p',s1);if(world)world.style.setProperty('--p',s1)}
+    if(p!==lastP){lastP=p;var s1=p.toFixed(4);scene.style.setProperty('--p',s1);if(world&&!phone)world.style.setProperty('--p',s1)}
     if(k!==lastK){lastK=k;scene.style.setProperty('--k',k.toFixed(4))}
     /* x = the pinned scene is leaving: its words fade before they slide under the logo */
     var x=clamp((y-sTop-sRange)/(vh*.3));if(x!==lastX){lastX=x;scene.style.setProperty('--x',x.toFixed(3))}
