@@ -1,0 +1,101 @@
+/* ClearSide booking page (20 Nov 2026). Spec: playbooks/landing_design_study.md "PIN 31".
+   Two glass cards side by side over the claim page photo. Calendar is the main thing.
+   Lag rule kept: the glass blur is still (nothing with blur moves); entrances are opacity + transform on the card CONTENTS only.
+   Undo: archive/before_book_pin31/ */
+body.book{--p:1;--P:.16}
+body.book .world{background-position:center 62%}
+body.book .world .night{background:linear-gradient(rgba(8,6,6,.9),rgba(8,6,6,.35) 45%,rgba(8,6,6,.95))}
+
+.bk{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:80px var(--pad) 56px}
+.bk-pair{display:grid;grid-template-columns:minmax(0,380px) minmax(0,808px);gap:14px;align-items:stretch;width:min(100%,1202px)}
+
+.gcard{position:relative;border-radius:14px;border:1px solid rgba(255,255,255,.3);overflow:hidden;
+  background:linear-gradient(165deg,rgba(92,58,40,.38),rgba(26,19,17,.6) 62%);
+  -webkit-backdrop-filter:blur(26px) saturate(1.25);backdrop-filter:blur(26px) saturate(1.25);
+  box-shadow:0 44px 90px -44px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.16)}
+
+/* ---- left card: what the call is ---- */
+.bk-say{display:flex;flex-direction:column;padding:26px 26px 22px}
+.bk-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--dim)}
+.bk-top .wm{font-size:16px;color:#fff}
+.bk-say h1{margin-top:44px;font-size:clamp(30px,2.7vw,38px);line-height:1.08}
+.bk-say .sub{margin-top:14px;color:var(--dim);font-size:15px;max-width:26em}
+.bk-rows{list-style:none;padding:0;margin-top:26px;display:grid;gap:8px}
+.bk-rows li{display:grid;grid-template-columns:30px 1fr;align-items:center;min-height:46px;padding:8px 14px;border-radius:8px;background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.07);font-size:14.5px;line-height:1.3}
+.bk-rows li i{font-style:normal;font-size:12px;letter-spacing:.06em;color:var(--or-hi)}
+.bk-go{display:none}
+.bk-me{margin-top:auto;padding-top:26px;display:flex;gap:14px;align-items:center}
+/* photo: cropped to the face, warmed to the dusk colours, same thin light edge as the glass cards */
+.bk-me .phw{position:relative;flex:none;width:64px;height:64px;border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.38);background:#2a1d17}
+.bk-me .ph{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:sepia(.12) saturate(.95) contrast(1.03)}
+.bk-me .phw::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(200deg,rgba(243,148,71,.2),rgba(26,19,17,0) 55%,rgba(18,12,10,.38))}
+/* slow time bar: one transform, no number shown */
+.bk-time{margin-top:22px}
+.bk-time p{font-size:13.5px;line-height:1.4;color:var(--dim);max-width:27em}
+.bk-bar{margin-top:10px;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden}
+.bk-bar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--or),var(--or-hi));transform-origin:0 50%}
+.bk-me div b{display:block;font-weight:500;font-size:16px}
+.bk-me div span{display:block;color:var(--dim);font-size:14px;margin-top:2px}
+.bk-fine{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:var(--faint);display:flex;flex-wrap:wrap;gap:4px 18px}
+
+/* ---- right card: the calendar ---- */
+.bk-cal{display:flex;flex-direction:column;background:linear-gradient(200deg,rgba(120,78,54,.34),rgba(22,17,16,.66) 58%)}
+.bk-cal::before{content:"";position:absolute;right:-40px;top:-70px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(243,148,71,.26),rgba(243,148,71,.12) 62%,rgba(243,148,71,0) 63%);pointer-events:none}
+.bk-calhead{position:relative;display:flex;justify-content:space-between;align-items:baseline;padding:26px 28px 6px}
+.bk-calhead h2{font-size:26px;line-height:1.1}
+.bk-calhead span{font-size:13px;color:var(--dim)}
+#cal{position:relative;flex:1;width:100%;min-height:470px;padding:0 8px}
+#cal iframe{display:block;width:100%;border:0;color-scheme:dark;opacity:0;transition:opacity .5s var(--ease)}
+#cal.ready iframe{opacity:1}
+/* quiet loading shape so the card never sits empty or jumps */
+#cal::before{content:"";position:absolute;inset:18px 24px;border-radius:10px;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 calc(14.2857% - 8px),transparent calc(14.2857% - 8px) 14.2857%);
+  -webkit-mask:repeating-linear-gradient(#000 0 52px,transparent 52px 60px);mask:repeating-linear-gradient(#000 0 52px,transparent 52px 60px);
+  transition:opacity .4s var(--ease)}
+#cal.ready::before{opacity:0}
+.bk-calfoot{position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;padding:14px 28px 20px;font-size:13px;color:var(--faint);border-top:1px solid rgba(255,255,255,.12)}
+.bk-calfoot a{color:var(--dim);text-underline-offset:4px;text-decoration-thickness:1px}
+.bk-calfoot a:hover{color:#fff}
+
+/* ---- tiny corner labels ---- */
+.bk-corner{position:absolute;bottom:22px;font-size:10px;line-height:1.75;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.bk-corner.l{left:var(--pad)}
+.bk-corner.r{right:var(--pad);text-align:right}
+
+a:focus-visible,.bk-go:focus-visible{outline:2px solid var(--or-hi);outline-offset:3px;border-radius:6px}
+
+/* ---- entrance: contents rise in, one after another (opacity + transform only) ---- */
+@media(prefers-reduced-motion:no-preference){
+  .up{animation:bkup .9s var(--ease) both;animation-delay:calc(var(--d,0)*90ms + 120ms)}
+  @keyframes bkup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .bk-bar i{animation:bkfill 120s linear 1.2s both}
+  @keyframes bkfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  #cal:not(.ready)::before{animation:bkpulse 1.6s ease-in-out infinite alternate}
+  @keyframes bkpulse{from{opacity:.55}to{opacity:1}}
+}
+
+@media(max-width:1239px){
+  .bk-corner{display:none}
+  .bk{justify-content:flex-start;padding:88px 16px 56px;min-height:0}
+  .bk-pair{grid-template-columns:1fr;width:min(100%,824px)}
+  .bk-say{padding:22px 20px 20px}
+  .bk-say h1{margin-top:28px}
+  .bk-go{display:inline-flex;align-self:flex-start;margin-top:22px}
+  .bk-me{margin-top:0}
+  .bk-calhead{padding:22px 20px 4px}
+  .bk-calfoot{padding:14px 20px 18px}
+  #cal{padding:0 2px;min-height:520px}
+  /* 20 Nov pm: phone keeps the calendar on the page, in a compact window that scrolls inside (cal.com grew it to 1900px) */
+  #cal iframe{height:min(74vh,620px)!important}
+}
+
+/* 20 Nov phone fix: no inline calendar on phones (long thin frame, blocked in previews). One big button opens cal.com full screen. Desktop unchanged. */
+@media(max-width:860px){
+  /* 21 Nov: phone only. Compact calendar sized to one screen (month grid + times), shown 90% size. Desktop unchanged. */
+  .bk-calhead{padding:16px 16px 2px}
+  .bk-calhead h2{font-size:22px}
+  #cal{min-height:0;height:calc(100svh - 190px);max-height:600px;overflow:hidden;padding:0}
+  #cal iframe{width:calc(100% / .9)!important;height:calc((100svh - 190px) / .9)!important;max-height:667px;transform:scale(.9);transform-origin:0 0}
+  .bk-calfoot{padding:10px 16px 14px}
+  .bk-calfoot span:last-child{display:none}
+}
