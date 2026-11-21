@@ -1,16 +1,239 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex"><title>ClearSide: your claims check</title>
-<style>body{font-family:system-ui,sans-serif;margin:0;background:#faf7f2;color:#222}main{max-width:720px;margin:0 auto;padding:24px 16px}
-h1{font-size:1.5rem;margin:0 0 8px}p{line-height:1.5}video{width:100%;border-radius:8px;background:#000}
-a.btn{display:inline-block;margin:20px 0;padding:14px 22px;background:#B83A14;color:#fff;text-decoration:none;border-radius:8px;font-weight:600}
-small{color:#666}</style></head><body><main>
-<h1>Your claims check: 2-minute video</h1>
-<p>Press play. If it looks like your problem, book 15 minutes below.</p>
-<video controls playsinline preload="metadata" src="claim.mp4"></video>
-<p><a class="btn" id="book" href="https://cal.com/clearside/15min">Book 15 minutes</a></p>
-<h2 style="font-size:1.1rem;margin:28px 0 8px">What ClearSide does (80 seconds)</h2>
-<video controls playsinline preload="none" src="ad.mp4"></video>
-<p><a class="btn" href="https://cal.com/clearside/15min">Book 15 minutes</a></p>
-<p><small>Michael at ClearSide. Every order accounted for.</small></p>
-</main></body></html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ClearSide: we check the claim before you pay it</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="f/f.css">
+</head>
+<body>
+
+<div class="world" aria-hidden="true">
+  <div class="stars"></div>
+  <div class="sun"></div>
+  <div class="ranges"><div class="drift">
+    <div class="r r1"></div><div class="r r2"></div><div class="r r3"></div><div class="r r4"></div>
+  </div></div>
+  <div class="night"></div>
+  <div class="wash"></div>
+</div>
+
+<nav class="nav">
+  <a class="wm" href="#top" aria-label="ClearSide">ClearSide<i></i></a>
+  <span class="navs"><a class="navlink" href="quote/">Enquire</a><a class="navlink" href="book/">15 minute chat</a></span>
+</nav>
+
+<nav class="tl" aria-label="On this page">
+  <span class="ln"><svg viewBox="0 0 40 1200" width="40" height="1200" aria-hidden="true"><defs><linearGradient id="tlg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1200"><stop offset="0" stop-color="#f39447" stop-opacity=".35"/><stop offset=".42" stop-color="#f39447"/><stop offset=".52" stop-color="#ffb46e"/><stop offset=".6" stop-color="#fff" stop-opacity=".3"/><stop offset="1" stop-color="#fff" stop-opacity=".22"/></linearGradient></defs><path d="M22 0V548C22 578 7 580 7 600C7 620 22 622 22 652V1200" fill="none" stroke="url(#tlg)" stroke-width="1.6"/></svg></span>
+  <span class="kn" aria-hidden="true"><i class="glow"></i><i class="disc"></i><em class="big">01</em></span>
+  <a href="#top"><i></i><span>Top</span></a>
+  <a href="#how"><i></i><span>How it works</span></a>
+  <a href="#offer"><i></i><span>Free check</span></a>
+  <a href="#video" class="vid"><i></i><span>Claim video · 90 s</span></a>
+  <a href="#about" class="vid"><i></i><span>ClearSide video · 80 s</span></a>
+  <a href="#answers"><i></i><span>Answers</span></a>
+  <a href="#call"><i></i><span>Call</span></a>
+</nav>
+
+<main id="top">
+
+<section class="scene">
+  <div class="stage">
+
+    <div class="pane" aria-hidden="true"></div>
+    <div class="cross" aria-hidden="true">
+      <b class="cut"><span>Send</span><span>Check</span><span>Report</span></b>
+      <b class="lit"><span>Send</span><span>Check</span><span>Report</span></b>
+    </div>
+
+    <div class="hero">
+      <h1>We check the claim<br>before you pay it.</h1>
+      <p class="lead">We take one claim and check every line against the contract rates and the site records.</p>
+      <div class="btns">
+        <a class="btn" href="book/">Pick a time <span class="chip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn2" href="quote/">Enquire</a>
+        <a class="ghost" href="#video">Watch the 90 second video</a>
+      </div>
+    </div>
+
+    <div class="win" role="img" aria-label="Sample claim report. Four lines checked. Line 11, fill supply, is claimed A$6,140 over the contract.">
+      <div class="stack" aria-hidden="true">
+        <div class="sheet l1"><span class="tag">Send</span><div class="in">
+          <div class="prow head"><span>You email us</span><b>The raw paperwork</b></div>
+          <div class="docs">
+            <div class="doc"><b>Claim 14</b><span>PDF</span></div>
+            <div class="doc"><b>Contract rates</b><span>Spreadsheet</span></div>
+            <div class="doc"><b>Site dockets</b><span>Site records</span></div>
+          </div>
+        </div></div>
+        <div class="sheet l2"><span class="tag">Check against rates</span><div class="in">
+          <div class="prow head"><span>Line</span><b>Against contract rates</b></div>
+          <div class="prow"><span>07 · Excavator hire, 42 h</span><b>Match</b></div>
+          <div class="prow"><span>11 · Fill supply, 310 t</span><b>Match</b></div>
+          <div class="prow"><span>12 · Traffic control</span><b>Match</b></div>
+          <div class="prow"><span>19 · Variation 3</span><b>Match</b></div>
+        </div></div>
+        <div class="sheet l3"><span class="tag">Check against site records</span><div class="in">
+          <div class="prow head"><span>Line</span><b>Against site records</b></div>
+          <div class="prow"><span>07 · Excavator hire, 42 h</span><b>Match</b></div>
+          <div class="prow bad"><span>11 · Fill supply, 310 t</span><b>Dockets show 198 t</b></div>
+          <div class="prow"><span>12 · Traffic control</span><b>Match</b></div>
+          <div class="prow"><span>19 · Variation 3</span><b>Match</b></div>
+        </div></div>
+        <div class="sheet l4"><span class="tag">Report</span>
+      <div class="screen">
+        <div class="bar"><i></i><i></i><i></i><span>Claim 14 report</span><b>Sample</b></div>
+        <div class="body">
+          <div class="state s-send">
+            <div class="prow head"><span>You email us</span><b><i class="cnt" data-to="2">2</i> files</b></div>
+            <div class="prow up"><span>Claim 14 · PDF</span><b>Sent</b></div>
+            <div class="prow up"><span>Contract rates · spreadsheet</span><b>Sent</b></div>
+            <div class="prow"><span>Names</span><b>Stripped if you like</b></div>
+            <div class="meter">
+              <div class="trow"><span>Your time</span><u><i style="--v:.05"></i></u><b><i class="cnt" data-to="5">5</i> min</b></div>
+              <div class="trow dim"><span>Our time</span><u><i style="--v:1"></i></u><b>3 business days</b></div>
+            </div>
+          </div>
+          <div class="state s-check">
+            <div class="prow head"><span>Claimed vs allowed</span><b><i class="cnt" data-to="4">4</i> of 4 lines checked</b></div>
+            <div class="trow mk"><span>07 · Excavator</span><u><i style="--v:.62"></i></u><b>Match</b></div>
+            <div class="trow mk over"><span>11 · Fill supply</span><u><i style="--v:.97"></i></u><b>+<i class="cnt" data-to="112">112</i> t</b></div>
+            <div class="trow mk"><span>12 · Traffic</span><u><i style="--v:.62"></i></u><b>Match</b></div>
+            <div class="trow mk"><span>19 · Variation 3</span><u><i style="--v:.62"></i></u><b>Match</b></div>
+            <div class="scale">
+              <div class="pan"><b>310 t</b><span>claimed</span></div>
+              <svg viewBox="0 0 80 46" aria-hidden="true"><path d="M40 9v31M27 42h26"/><g class="beam"><path d="M12 10h56"/><path d="M12 10l-8 15h16zM68 10l-8 15h16z"/></g><circle cx="40" cy="10" r="2.6"/></svg>
+              <div class="pan"><b>198 t</b><span>on site dockets</span></div>
+            </div>
+          </div>
+          <div class="state s-report">
+            <div class="big"><span>Line 11 · Fill supply<br>claimed over the contract</span><b class="cnt" data-to="6140" data-pre="+A$">+A$6,140</b></div>
+            <div class="meter">
+              <div class="trow over"><span>Claimed</span><u><i style="--v:1"></i></u><b>310 t</b></div>
+              <div class="trow"><span>Site dockets</span><u><i style="--v:.64"></i></u><b>198 t</b></div>
+            </div>
+            <div class="stats"><div><b class="cnt" data-to="4">4</b><span>lines checked</span></div><div><b>1</b><span>does not match</span></div><div><b><i class="cnt" data-to="112">112</i> t</b><span>not on dockets</span></div></div>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+      <canvas class="dust" aria-hidden="true"></canvas>
+    </div>
+
+    <div class="trees"></div>
+    <p class="cue"><a href="#how">How it works<i></i></a></p>
+
+    <div class="how" id="how">
+      <h2>How it works.</h2>
+      <ol class="steps">
+        <li class="step"><span class="n">01</span><h3>Send</h3>
+          <div class="more"><p>Email us one recent claim and its contract rates. It takes five minutes. Strip the names if you like.</p></div></li>
+        <li class="step"><span class="n">02</span><h3>Check</h3>
+          <div class="more"><p>We check every line against the rates and your site records. You do nothing.</p></div></li>
+        <li class="step"><span class="n">03</span><h3>Report</h3>
+          <div class="more"><p>Three business days later you get one page: each line that does not match, why, and the dollars beside it. Yours to keep.</p></div></li>
+      </ol>
+      <div class="btns"><a class="btn" href="book/">Walk me through it <span class="chip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn2" href="quote/">Enquire</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="offer" id="offer">
+  <div class="card rv" data-wash>
+    <div class="corners">
+      <span>Free claim check</span>
+      <a class="txt" href="book/">15 minute chat <svg viewBox="0 0 24 12" aria-hidden="true"><path d="M1 6h21M17 1l5 5-5 5"/></svg></a>
+    </div>
+    <div>
+      <h2 class="type">Try it on one of your own claims, free.</h2>
+      <ul class="line">
+        <li><b>1 claim</b><span>Checked for free</span></li>
+        <li><b>3 business days</b><span>To get the report</span></li>
+        <li><b>A$0</b><span>You keep the report either way</span></li>
+      </ul>
+    </div>
+    <div class="corners">
+      <a class="btn" href="book/">Pick a time <span class="chip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn2" href="quote/">Enquire</a>
+      <span>ClearSide</span>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap split rv">
+    <div class="copy">
+      <h2>You asked for the video. Here it is.</h2>
+      <p>In 90 seconds we take one sample claim and check every line against the contract rates and the site records.</p>
+      <p class="len">90 seconds · sample claim</p>
+    </div>
+    <div class="frame"><video controls playsinline preload="metadata" poster="poster-claim.jpg" src="claim.mp4"></video></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap split flip rv">
+    <div class="copy">
+      <h2>What ClearSide does.</h2>
+      <p class="len">80 seconds</p>
+    </div>
+    <div class="frame"><video controls playsinline preload="metadata" poster="poster-ad.jpg" src="ad.mp4"></video></div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap split rv">
+    <div class="copy">
+      <h2>Who you'll be talking to.</h2>
+      <p>Hi, I'm Michael. I've worked on commercial jobs and FIFO construction sites across WA.</p>
+      <p>I've sat on both sides of a claim. I've sent claims in for work we'd finished. And I've been the one checking them and signing them off.</p>
+      <p>So I know the feeling. The rates don't match the contract. The dockets don't line up with the job. And the money sits stuck while everyone chases paperwork.</p>
+      <p>That's why I started ClearSide. I do the boring checking for you, so you can get back to running the job.</p>
+      <ul class="who-list">
+        <li>You talk to me. Not a sales team, not a call centre.</li>
+        <li>You see what I found before you spend a dollar.</li>
+        <li>If your claims are clean, I'll tell you straight and we're done.</li>
+      </ul>
+      <p>Got a claim bugging you right now? Pick a time and we'll go through it together.</p>
+      <p class="len">Michael Pedrick, ClearSide</p>
+    </div>
+    <div class="frame"><img src="f/michael_mic.webp" width="640" height="800" alt="Michael Pedrick, founder of ClearSide, speaking with a microphone" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="faq" id="answers">
+  <div class="wrap rv">
+    <h2>Straight answers.</h2>
+    <div>
+      <details open><summary>Why is it free?<i></i></summary><p>So you see the real output before you spend a dollar. We back the check to speak for itself, so the first one is on us.</p></details>
+      <details><summary>Do you need access to our system?<i></i></summary><p>No. You email the claim and the rates. The report comes back by email. Nothing is installed.</p></details>
+      <details><summary>Is our data safe?<i></i></summary><p>I sign your NDA before you send a thing. Or strip the names first. Your documents are used for this one check only. They are deleted 30 days after the report, and you get that in writing.</p></details>
+      <details><summary>Who is it for?<i></i></summary><p>Australian head contractors in civil, mining services and construction that pay subcontractors every month.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="close" id="call">
+  <div class="wrap rv">
+    <h2><span>A phone call</span><span>with Michael.</span></h2>
+    <div class="btns">
+      <a class="btn" href="book/">Pick a 15 minute time <span class="chip"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="btn2" href="quote/">Enquire</a>
+      <p>Or reply to my email and I will ring you.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <b>Every order accounted for.</b>
+  <span>Michael Pedrick, ClearSide. Reply to the email I sent you and it comes straight to me.</span>
+</footer>
+
+<script src="f/f.js"></script>
+</body>
+</html>
